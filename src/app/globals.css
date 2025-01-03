@@ -1,21 +1,161 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Root colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #007bff; /* Bright blue for accents */
+  --secondary-color: #6c757d; /* Dark gray for secondary text */
+  --highlight-color: #ff7f50; /* Coral for highlights */
+  --background-color: #e6f7ff; /* Very light blue background */
+  --card-bg-color: #ffffff; /* White background for cards */
+  --font-color: #212529; /* Dark text color */
+  --border-color: #e0e0e0; /* Light border color */
+  --hover-color: #0056b3; /* Darker blue for hover effects */
+  --button-hover: #ff5733; /* Orange for button hover effect */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Global styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Main container */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-bg-color);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: var(--font-color);
+}
+
+/* Button styles */
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Note card styles */
+.note-card {
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.note-card h2 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+.note-card p {
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.note-card .tags {
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.note-card button {
+  background-color: var(--highlight-color);
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.note-card button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Search Bar and Tag Filter */
+input[type="text"], select {
+  margin-top: 0;
+}
+
+input[type="text"] {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button, input, textarea, select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .note-card {
+    padding: 15px;
+  }
+
+  .note-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .note-card p {
+    font-size: 0.95rem;
+  }
 }
